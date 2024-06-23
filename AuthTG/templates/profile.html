@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    
+    .container {
+        text-align: center;
+    }
+    
+    #loginForm {
+        margin-top: 20px;
+    }
+    
+    #qrCode {
+        width: 200px;
+        height: 200px;
+    }
+</style> 
+</head>
+<body>
+    <div class="container">
+        <h1>Добро пожаловать, {{ user.first_name }} {{ user.last_name }}!</h1>
+        <p>Ваше имя пользователя: {{ user.username }}</p>
+        <a href="{{ url_for('logout') }}">Выйти</a>
+    </div>
+</body>
+</html>

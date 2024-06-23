@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authorization</title>
+    <style>body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    
+    .container {
+        text-align: center;
+    }
+    
+    #loginForm {
+        margin-top: 20px;
+    }
+    
+    #qrCode {
+        width: 200px;
+        height: 200px;
+    }
+</style> 
+</head>
+<body>
+    <div class="container">
+        {% if 'user' in session %}
+            <p>Вы уже авторизованы как {{ session['user']['first_name'] }} {{ session['user']['last_name'] }}.</p>
+            <a href="{{ url_for('logout') }}">Выйти</a>
+        {% else %}
+            <button id="loginButton">Войти</button>
+            <div id="loginForm" style="display: none;">
+                <img id="qrCode" src="" alt="QR Code">
+                <p id="statusMessage"></p>
+            </div>
+        {% endif %}
+    </div>
+    <script src="static/script.js"></script>
+</body>
+</html>
