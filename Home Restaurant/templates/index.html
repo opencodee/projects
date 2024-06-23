@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="static/img/cake-3-line.png" type="image/x-icon"/>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="static/css/styles.css"/>
+    <title>Food</title>
+  </head>
+  <body>
+    <div id="notification" class="notification"></div>
+    <div id="modal-view-photo-card" class="modal-view-photo-card">
+      <span class="modal-view-photo-card-close">&times;</span>
+      <img class="modal-view-photo-card-content" id="modal-view-photo-card-img">
+      <div id="modal-view-photo-card-caption"></div>
+    </div>
+
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="/" class="nav__logo">
+          <i class="ri-cake-3-line"></i> Food
+        </a>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#home" class="nav__link active-link">Главная</a>
+            </li>
+            <li class="nav__item">
+              <a href="#steps" class="nav__link">Как заказать?</a>
+            </li>
+            <li class="nav__item">
+              <a href="#menu" class="nav__link">Меню</a>
+            </li>
+            <li class="nav__item">
+              <a href="/cart" class="nav__link">Заказ</a>
+            </li>
+          </ul>
+
+          <div class="nav__close" id="nav-close">
+            <i class="ri-close-line"></i>
+          </div>
+        </div>
+
+        <div class="nav__btns">
+          <i class="ri-moon-line change-theme" id="theme-button"></i>
+
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="ri-menu-line"></i>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="home" id="home">
+        <div class="home__container container grid">
+          <img src="static/img/home.png" alt="" class="home__img" />
+
+          <div class="home__data">
+            <h1 class="home__title">
+              Еда - лучшее средство
+              от любого расстройства
+            </h1>
+            <p class="home__description">
+              Здесь вы найдёте блюда европейской кухни и авторские рецепты от шеф-повара.
+            </p>
+            <a href="#menu" class="button button--flex">
+              Изучить <i class="ri-arrow-right-down-line button__icon"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="steps section container" id="steps">
+        <div class="steps__bg">
+          <h2 class="section__title-center steps__title">
+            Шаги, необходимые для <br>оформления заказа в ресторане
+          </h2>
+
+          <div class="steps__container grid">
+            <div class="steps__card">
+              <div class="steps__card-number">01</div>
+              <h3 class="steps__card-title">Зайдите в «Меню»</h3>
+              <p class="steps__card-description">
+                Зайдите на сайт ресторана и найдите раздел «Меню». 
+                Выберите понравившиеся блюда и напитки из ассортимента.
+              </p>
+            </div>
+
+            <div class="steps__card">
+              <div class="steps__card-number">02</div>
+              <h3 class="steps__card-title">Добавьте в «Корзину»</h3>
+              <p class="steps__card-description">
+                Нажмите на «<i class="ri-shopping-bag-line"></i>» рядом с понравившейся блюдом.
+              </p>
+            </div>
+
+            <div class="steps__card">
+              <div class="steps__card-number">03</div>
+              <h3 class="steps__card-title">Оформите заказ</h3>
+              <p class="steps__card-description">
+                Перейдите в раздел «Корзина» и следуйте инструкциям.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="product section container" id="menu">
+        <h2 class="section__title-center">
+          Ознакомьтесь с нашим меню
+        </h2>
+
+        <p class="product__description">
+          Откройте для себя разнообразие вкусов и насладитесь лучшими блюдами нашей кухни!
+        </p>
+
+        <div class="product__container grid">
+          {% for product in products %}
+          {% if product.visibility != 'no' %}
+          <article class="product__card">
+            <img src="{{ product.image }}" alt="{{ product.name }}" class="product__img" id="Image-card"/>
+            <h3 class="product__title">{{ product.name }}</h3>
+            <span class="product__price">{{ product.price }} Max</span>
+            <button
+              class="button--flex product__button"
+              onclick="addToCart('{{ product.id }}')"
+            >
+              <i class="ri-shopping-bag-line"></i>
+            </button>
+          </article>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer section">
+      <div class="footer__container container grid">
+        <div class="footer__content">
+          <h3 class="footer__title">Контакты</h3>
+
+          <ul class="footer__data">
+            <li class="footer__information">Сети</li>
+
+            <div class="footer__social">
+              <a href="https://www.facebook.com/" class="footer__social-link">
+                <i class="ri-facebook-fill"></i>
+              </a>
+              <a href="https://www.instagram.com/" class="footer__social-link">
+                <i class="ri-instagram-line"></i>
+              </a>
+              <a href="https://twitter.com/" class="footer__social-link">
+                <i class="ri-twitter-fill"></i>
+              </a>
+            </div>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="footer__copy">&#169; Template by Bedimcode. All rigths reserved</p>
+    </footer>
+
+    <a href="#" class="scrollup" id="scroll-up">
+      <i class="ri-arrow-up-fill scrollup__icon"></i>
+    </a>
+
+    <script src="static/js/main.js"></script>
+    <script src="static/js/index.js"></script>
+  </body>
+</html>

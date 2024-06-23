@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="static/img/cake-3-line.png" type="image/x-icon"/>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="static/css/styles.css"/>
+    <title>Food Корзина</title>
+  </head>
+  <body>
+    <div id="notification" class="notification"></div>
+    <div id="modal-view-photo-card" class="modal-view-photo-card">
+      <span class="modal-view-photo-card-close">&times;</span>
+      <img class="modal-view-photo-card-content" id="modal-view-photo-card-img">
+      <div id="modal-view-photo-card-caption"></div>
+    </div>
+
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="/" class="nav__logo">
+          <i class="ri-cake-3-line"></i> Food
+        </a>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="/#home" class="nav__link">Главная</a>
+            </li>
+            <li class="nav__item">
+              <a href="/#steps" class="nav__link">Как заказать?</a>
+            </li>
+            <li class="nav__item">
+              <a href="/#menu" class="nav__link">Меню</a>
+            </li>
+            <li class="nav__item">
+              <a href="/cart" class="nav__link active-link">Заказ</a>
+            </li>
+          </ul>
+
+          <div class="nav__close" id="nav-close">
+            <i class="ri-close-line"></i>
+          </div>
+        </div>
+
+        <div class="nav__btns">
+          <i class="ri-moon-line change-theme" id="theme-button"></i>
+
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="ri-menu-line"></i>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="product section container">
+        <h2 class="section__title-center">
+          Корзина
+        </h2>
+
+        <p class="product__description">
+            Всего товаров в корзине: <span id="total-items-count">0</span><br>
+            Общая стоимость: <span id="total-price-value">$0.00</span><br>
+        </p>
+
+        <div class="footer__subscribe">
+            <input type="text" id="key-cart" name="key-cart" placeholder="Ключ" class="footer__input" required>
+            <button class="button button--flex footer__button" type="submit" id="key-cart-button">Проверить<i class="ri-arrow-right-up-line button__icon"></i></button>
+        </div>
+        <div id="loading-message" style="display: none;">Пожалуйста, подождите...</div>
+        <div id="empty-cart-message" style="display: none; ">Корзина пуста</div>
+        <div class="product__container grid"></div>
+
+        <input id="customerID" name="customerID" readonly hidden>
+        <input id="product_ids" name="product_ids" readonly hidden>
+        <input id="total_items" name="total_items" readonly hidden>
+        <input id="total_price" name="total_price" readonly hidden>
+      </section>
+    </main>
+
+    <footer class="footer section">
+      <div class="footer__container container grid">
+        <div class="footer__content">
+          <h3 class="footer__title">Контакты</h3>
+
+          <ul class="footer__data">
+            <li class="footer__information">Сети</li>
+
+            <div class="footer__social">
+              <a href="https://www.facebook.com/" class="footer__social-link">
+                <i class="ri-facebook-fill"></i>
+              </a>
+              <a href="https://www.instagram.com/" class="footer__social-link">
+                <i class="ri-instagram-line"></i>
+              </a>
+              <a href="https://twitter.com/" class="footer__social-link">
+                <i class="ri-twitter-fill"></i>
+              </a>
+            </div>
+          </ul>
+        </div>
+      </div>
+
+      <p class="footer__copy">&#169; Template by Bedimcode. All rigths reserved</p>
+    </footer>
+
+    <a href="#" class="scrollup" id="scroll-up">
+      <i class="ri-arrow-up-fill scrollup__icon"></i>
+    </a>
+
+  <script src="static/js/main.js"></script>
+  <script src="static/js/cart.js"></script>
+  </body>
+</html>

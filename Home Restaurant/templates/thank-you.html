@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="static/img/cake-3-line.png" type="image/x-icon"/>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="static/css/styles.css"/>
+    <style>
+    @media (max-width: 768px) {
+    .home__img {
+        display: none;
+    }}
+    </style>
+    <title>Благодарим Вас ❤️</title>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="/" class="nav__logo">
+          <i class="ri-cake-3-line"></i> Food
+        </a>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="/" class="nav__link">Главная</a>
+            </li>
+            <li class="nav__item">
+              <a href="/#steps" class="nav__link">Как заказать?</a>
+            </li>
+            <li class="nav__item">
+              <a href="/#menu" class="nav__link">Меню</a>
+            </li>
+            <li class="nav__item">
+              <a href="/cart" class="nav__link">Заказ</a>
+            </li>
+          </ul>
+
+          <div class="nav__close" id="nav-close">
+            <i class="ri-close-line"></i>
+          </div>
+        </div>
+
+        <div class="nav__btns">
+          <i class="ri-moon-line change-theme" id="theme-button"></i>
+
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="ri-menu-line"></i>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="home" id="home">
+        <div class="home__container container grid">
+          <img src="static/img/home.png" class="home__img" />
+          <div class="home__data">
+            <h1 class="home__title">Благодарим вас за сделанный заказ в нашем ресторане!</h1>
+            <p class="home__description">Ваш заказ подтверждён, и мы с нетерпением ждём вашего визита.</p>
+            <a href="/" class="button button--flex">
+              Главная <i class="ri-arrow-right-line"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="static/js/main.js"></script>
+  </body>
+</html>
